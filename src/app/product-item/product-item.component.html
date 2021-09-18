@@ -1,1 +1,7 @@
-<h1>{{ product.name }}</h1>
+<a [routerLink]="['/product', product.id]">
+  <img src="{{ product.url }}" alt="{{ product.name }}">
+  <h2>{{ product.name }}</h2>
+  <p>{{ product.price }}</p>
+</a>
+<select></select>
+<button>Add to Cart</button>
