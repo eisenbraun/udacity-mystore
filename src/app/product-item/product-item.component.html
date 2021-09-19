@@ -1,7 +1,19 @@
-<a [routerLink]="['/product', product.id]">
-  <img src="{{ product.url }}" alt="{{ product.name }}">
-  <h2>{{ product.name }}</h2>
-  <p>{{ product.price }}</p>
-</a>
-<select></select>
-<button>Add to Cart</button>
+<div class="card border-0 shadow-sm">
+  <div class="card-body rounded-3 p-2">
+    <a class="d-block mb-3" [routerLink]="['/product', product.id]">
+      <img class="img-fluid rounded-3" src="{{ product.url + '&h=800' }}" alt="{{ product.name }}">
+    </a>
+    <div class="d-flex justify-content-between align-items-center">
+      <p><strong>{{ product.name }}</strong><br>
+        <small class="text-muted">${{ product.price }}</small>
+      </p>
+
+      <div class="d-grid align-items-center">
+        <button class="btn btn-primary rounded-circle">&plus;</button>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
