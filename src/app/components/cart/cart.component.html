@@ -1,0 +1,10 @@
+<h1 class="py-5 text-center">Your Shopping Cart</h1>
+<div class="row justify-content-md-center">
+  <div class="col col-12 col-md-8 mb-6">
+    <div class="p-3 bg-white d-flex align-items-center shadow-sm rounded-3" *ngFor="let product of cart">
+      <img class="rounded-3 shadow-sm me-3" src="{{ product.url + '&h=800' }}" alt="{{ product.name }}">
+      <h2>{{ product.name }}</h2>
+      <p class="ms-auto"><strong>${{ product.price }}</strong></p>
+    </div>
+  </div>
+</div>
