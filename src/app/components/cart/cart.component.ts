@@ -12,6 +12,10 @@ export class CartComponent implements OnInit {
   cart: Item[] = []
   constructor(private cartService: CartService) { }
 
+  removeItem(item: Item): void {
+    this.cartService.removeItem(item)
+  }
+
   ngOnInit(): void {
     this.cart = this.cartService.getCart()
   }

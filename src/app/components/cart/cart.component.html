@@ -1,15 +1,22 @@
 <h1 class="py-5 text-center">Your Shopping Cart</h1>
 <div class="row justify-content-md-center">
   <div class="col col-12 col-md-8 mb-5">
-    <div class="p-3 bg-white d-flex align-items-start shadow-sm rounded-3 mb-3" *ngFor="let product of cart">
+    <div class="p-3 bg-white d-flex shadow-sm rounded-3 mb-3" *ngFor="let product of cart">
       <img class="rounded-3 shadow-sm me-3" src="{{ product.url + '&h=800' }}" alt="{{ product.name }}">
-      <div class="flex-fill">
-        <h2>{{ product.name }}</h2>
+      <div class="flex-fill d-flex flex-column align-items-start">
+        <h2 class="flex-fill">{{ product.name }}</h2>
         <select class="form-select w-auto" [(ngModel)]="product.quantity">
           <option *ngFor="let i of [1, 2, 3, 4, 5]">{{ i }}</option>
         </select>
       </div>
-      <p class="ms-auto"><strong>${{ product.price }}</strong></p>
+      <div class="ms-auto d-flex flex-column text-end align-items-end">
+        <p class="ms-auto flex-fill"><strong>${{ product.price }}</strong></p>
+        <button class="btn" (click)="removeItem(product)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+          <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+        </svg></button>
+      </div>
+      
     </div>
   </div>
 </div>

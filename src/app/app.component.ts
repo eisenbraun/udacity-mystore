@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChanges } from '@angular/core';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'mystore';
+  cartTotal: number = 0
+
+  constructor(private cartService: CartService) { }
+
+  ngOnInit(): void {
+    this.cartTotal = this.cartService.totalItems()
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes)
+  } 
+
+  ngDoCheck() {
+    this.cartTotal = this.cartService.totalItems()
+  }
 }
