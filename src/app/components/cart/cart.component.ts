@@ -30,6 +30,10 @@ export class CartComponent implements OnInit {
     this.cartService.removeItem(item)
   }
 
+  totalPrice(): number {
+    return this.cartService.totalPrice()
+  }
+
   ngOnInit(): void {
     this.cart = this.cartService.getCart()
   }
