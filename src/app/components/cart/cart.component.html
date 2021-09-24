@@ -5,8 +5,8 @@
       <img class="rounded-3 shadow-sm me-3" src="{{ product.url + '&h=800' }}" alt="{{ product.name }}">
       <div class="flex-fill d-flex flex-column align-items-start">
         <h2 class="flex-fill">{{ product.name }}</h2>
-        <select class="form-select w-auto" [(ngModel)]="product.quantity">
-          <option *ngFor="let i of [1, 2, 3, 4, 5]">{{ i }}</option>
+        <select class="form-select w-auto" [(ngModel)]="product.quantity" (ngModelChange)="updateCart($event, product)">
+          <option *ngFor="let in of range(product.quantity); let i = index;">{{ i + 1 }}</option>
         </select>
       </div>
       <div class="ms-auto d-flex flex-column text-end align-items-end">

@@ -20,6 +20,7 @@ export class AppComponent {
   } 
 
   ngDoCheck() {
+    this.cartService.save()
     this.cartTotal = this.cartService.totalItems()
   }
 }

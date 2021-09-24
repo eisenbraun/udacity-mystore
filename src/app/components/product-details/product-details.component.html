@@ -6,8 +6,8 @@
   <div class="col col-12 col-md-6 mb-5 d-grid justify-content-center text-center align-content-center">
     <p class="display-4">${{ product.price }}</p>
     <p class="mb-5">{{ product.description }}</p>
-    <form>
-      <select class="form-select mb-3">
+    <form (ngSubmit)="addToCart()">
+      <select name="quantity" class="form-select mb-3" [(ngModel)]="quantity">
         <option *ngFor="let i of [1, 2, 3, 4, 5]">{{ i }}</option>
       </select>
       <button class="btn btn-lg btn-primary">Add to Cart</button>
