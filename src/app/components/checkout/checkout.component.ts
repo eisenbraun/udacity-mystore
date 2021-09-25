@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,13 +13,13 @@ export class CheckoutComponent implements OnInit {
   address: string = ''
 
   constructor(
-    private cartService: CartService,
+    private orderService: OrderService,
     private router: Router  
   ) { }
 
   submitOrder() {
-    this.cartService.clearCart()
-    this.router.navigate(['/confirmation'])
+    const orderId = this.orderService.addToOrders(this.fullName, this.address)
+    this.router.navigate([`/confirmation/${orderId}`])
   }
 
   ngOnInit(): void {

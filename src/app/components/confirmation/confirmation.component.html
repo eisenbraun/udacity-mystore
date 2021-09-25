@@ -1,11 +1,16 @@
-<h1 class="py-5 text-center">Order Complete!</h1>
-<div class="row justify-content-center">
+<div class="row justify-content-center" *ngIf="order.fullName; else elseBlock">
+  <h1 class="py-5 text-center">Order Complete!</h1>
   <div class="col col-10 col-md-8 mb-5">
-    <div class="text-center">
-      <p>Thank you, <strong>Full Name</strong>!</p>
-      <p>Your order of <strong>Total Price</strong> is confirmed.</p>
-      <p>Please allow 1-3 business day(s) for shipping</p>
-      <a [routerLink]="['/']" class="btn btn-primary">Back to product list</a>
-    </div>
+      <div class="text-center" >
+        <p>Thank you, <strong>{{ order.fullName }}</strong>!</p>
+        <p>Your order of <strong>${{ order.totalPrice }}</strong> is confirmed.</p>
+        <p>Please allow 1-3 business day(s) for shipping</p>
+        <a [routerLink]="['/']" class="btn btn-primary">Back to product list</a>
+      </div>  
   </div>
 </div>
+
+
+<ng-template #elseBlock>
+  <h3 class="py-5 text-center"><em>Sorry, your order could not be found.</em></h3>
+</ng-template>
