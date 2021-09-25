@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartIconComponent } from './components/cart-icon/cart-icon.component'
 
 @NgModule({
   declarations: [
@@ -20,13 +22,15 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
     ProductDetailsComponent,
     CartComponent,
     CheckoutComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    CartIconComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

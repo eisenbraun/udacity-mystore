@@ -1,5 +1,5 @@
 <h1 class="py-5 text-center">Your Shopping Cart</h1>
-<div class="row">
+<div class="row" *ngIf="cart.length; else elseBlock">
   <div class="col col-10 col-md-8 mb-5">
     <div class="p-3 bg-white d-flex shadow-sm rounded-3 mb-3" *ngFor="let product of cart">
       <img class="rounded-3 shadow-sm me-3" src="{{ product.url + '&h=800' }}" alt="{{ product.name }}">
@@ -26,3 +26,6 @@
     
   </div>
 </div>
+<ng-template #elseBlock>
+  <h3 class="py-5 text-center"><em>Your cart is empty.</em></h3>
+</ng-template>
